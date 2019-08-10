@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useEffect,useState} from 'react';
 import './App.css';
+import Dashboard from "./components/Dashboard";
+import {Provider} from "react-redux";
+import store from "./store"
+import {getUserId,getGroupId} from "./actions/index"
+
 
 function App() {
+  const [userDataLoaded,setUserDataLoaded] =  useState(false)
+
+  useEffect(()=>{
+    store.dispatch(getUserId());
+    store.dispatch(getGroupId());
+    setUserDataLoaded(true);
+  },[setUserDataLoaded])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      {
+        userDataLoaded &&  <Dashboard />
+      } 
+    </Provider>
   );
 }
 

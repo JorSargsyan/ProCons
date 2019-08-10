@@ -1,33 +1,103 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+*{
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding:0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#root{
+  background: rgba(0, 0, 0, 0.788);
+  min-height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+h1{
+  text-align: center;
+  padding: 30px 0;
+}
+
+.list-container{
+  width: 60%;
+    margin: 0 auto;
+    display: flex;
+    padding: 10px;
+    box-shadow: 0 0 11px 1px rgba(0, 0, 0, 0.231);
+}
+
+.list-container .list{
+  flex: 1;
+  position: relative;
+}
+
+.list-container .list .title-area{
+  padding: 25px 5px;
+}
+
+.list-container .list .list-item{
+  align-items: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px;
+  margin: 0 10px;
+  transition: 0.5s all;
+  border: 1px solid rgba(116, 114, 114, 0.341);
+  border-bottom: 0;
+}
+
+.list-container .list .list-item:last-child{
+  border-bottom:1px solid rgba(116, 114, 114, 0.341);
+}
+
+
+.add-item-area{
+  padding: 15px 10px;
+}
+
+.add-item-area form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+input{
+  background: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    width: 100%;
+    margin-right: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.button{
+  border: none;
+  outline: none;
+  padding: 10px 15px; 
+  border-radius: 3px;
+  transition: 0.35s all;
+}
+
+
+.button:hover{
+  transform: translate(2px, 2px);
+  box-shadow: -3px 3px 6px 1px rgba(0, 0, 0, 0.349);
+  cursor: pointer;
+}
+
+
+.button.add-button{
+  background:rgb(13, 82, 13);
+}
+
+.button.remove-button{
+  background:rgb(124, 9, 9);
+}
+
+
+@media screen and (max-width:992px){
+  .list-container{
+    flex-direction: column;
   }
 }
